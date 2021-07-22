@@ -4,11 +4,11 @@ The goal of statsearchanalyticsr is to create an easy to use library to access S
 
 ## Installation
 
-You can install the released version of statsearchanalyticsr from bitbucket with:
+You can install the development version of statsearchanalyticsr from github with:
 
 ``` r
-## Load the development version of the page via github
-remotes::install_github('searchdiscovery/statsearchanalytics', force = T)
+## Load the development version of the package via github
+remotes::install_github('searchdiscovery/statsearchanalyticsr')
 ```
 
 ## Define global variables with account information
