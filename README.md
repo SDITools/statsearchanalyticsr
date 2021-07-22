@@ -52,10 +52,10 @@ library(statsearchanalyticsr)
 projects <- ssar_projects()
 
 ## Get the sites for a specific project
-sites <- ssar_sites(projectid = 3809)
+sites <- ssar_sites(projectid = 2343)
 
 ## Get the keywords for a site
-keywords <- ssar_keywords(siteid = 1717)
+keywords <- ssar_keywords(siteid = 2353)
 
 ## Get the rankings for a keyword
 rankings <- ssar_rankings(keywordid = 123123, fromdate = {created_at}, todate = Sys.Date()-1)
