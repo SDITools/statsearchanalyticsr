@@ -1,0 +1,21 @@
+Package: statsearchanalyticsr
+Title: An R library for working with STAT Search Analytics data
+Version: 0.1.0
+Authors@R: 
+    person(given = "Ben",
+           family = "Woodard",
+           role = c("aut", "cre"),
+           email = "ben.woodard@searchdiscovery.com")
+Description: STATR is an R client for the STAT Search Analytics API. It was developed by the Search Discovery team to help analyze keyword ranking data.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    glue,
+    httr,
+    jsonlite,
+    purrr,
+    tidyr,
+    stringr
