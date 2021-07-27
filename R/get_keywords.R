@@ -17,7 +17,7 @@
 #'
 ssar_keywords <- function(siteid = NULL,
                          start = 0,
-                         results = 2000,
+                         results = 100,
                          subdomain = Sys.getenv('STATR_SUBDOMAIN'),
                          apikey = Sys.getenv('STATR_APIKEY')) {
 #siteid check
