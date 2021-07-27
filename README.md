@@ -1,4 +1,4 @@
-# statsearchanalytisr
+# statsearchanalyticsr
 
 The goal of statsearchanalyticsr is to create an easy to use library to access STAT Search Analytics data in R for visualization, integration, and analysis.
 
