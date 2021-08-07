@@ -1,6 +1,6 @@
 Package: statsearchanalyticsr
 Title: An R library for working with STAT Search Analytics data
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     person(given = "Ben",
            family = "Woodard",
