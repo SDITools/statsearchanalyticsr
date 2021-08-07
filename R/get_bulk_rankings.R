@@ -20,56 +20,100 @@
 #' @export
 #'
 ssar_bulk_rankings <- function( date = Sys.Date()-1,
-                         siteid = NULL,
-                         ranktype = 'highest',
-                         engines = c('google', 'bing'),
-                         currentlytracked = TRUE,
-                         crawledkeywords = TRUE,
-                         subdomain = Sys.getenv('STATR_SUBDOMAIN'),
-                         apikey = Sys.getenv('STATR_APIKEY')) {
-if(is.null(date)){
-  stop("date argument cannot be empty")
-}
-if(length(date) > 1){
-  stop("date argument cannot include more than one day")
-}
-#clean engines argument
-if(length(engines) > 1) {
-  engines <- stringr::str_c(engines, collapse = ',')
-}
-#clean sites
-if(length(siteid) > 1) {
-  siteid <- stringr::str_c(siteid, collapse = ',')
-}
-#add valid params
-  params <- list(site_id = siteid, rank_type = ranktype, engines = engines, currently_tracked_only = currentlytracked, crawled_keywords_only = crawledkeywords, format = 'json')
-
-#collec non NULL params into a list
+                                siteid = NULL,
+                                ranktype = 'highest',
+                                engines = c('google', 'bing'),
+                                currentlytracked = TRUE,
+                                crawledkeywords = TRUE,
+                                subdomain = Sys.getenv('STATR_SUBDOMAIN'),
+                                apikey = Sys.getenv('STATR_APIKEY')) {
+  if(is.null(date)){
+    stop("date argument cannot be empty")
+  }
+  if(length(date) > 1){
+    stop("date argument cannot include more than one day")
+  }
+  #clean engines argument
+  if(length(engines) > 1) {
+    engines <- stringr::str_c(engines, collapse = ',')
+  }
+  #clean sites
+  if(length(siteid) > 1) {
+    siteid <- stringr::str_c(siteid, collapse = ',')
+  }
+  #add valid params
+  params <- list(site_id = siteid, rank_type = ranktype, engines = engines, currently_tracked_only=currentlytracked, crawled_keywords_only = crawledkeywords, format = 'json')
+  
+  #collec non NULL params into a list
   valid_params <- Filter(Negate(is.null), params)
-#make that list into a parameter string
+  #make that list into a parameter string
   urlparams <- paste0(names(valid_params),'=',valid_params, collapse = '&')
   # build request url
   baseurl <- glue::glue('https://{subdomain}.getstat.com/api/v2/{apikey}/')
-
+  
   endpoint <- 'bulk/ranks'
-
+  
   requrl <- glue::glue('{baseurl}{endpoint}?date={as.Date(date)}&{urlparams}&format=json')
-
- bulk_ranks <- httr::GET(requrl)
-
-#check the status for the call and return errors or don't
- httr::stop_for_status(bulk_ranks, glue::glue('get the bulk rankings. \n {httr::content(bulk_ranks)$Result}'))
- #if 200 but no results due to an error
- if(is.null(httr::content(bulk_ranks)$Response)) {
-   stop(httr::content(bulk_ranks)$Result)
- }
-
- #return the results
- report_id <- httr::content(bulk_ranks)$Response$Result$Id
-
- report_id
-
- df <-  purrr::map_df(bulk_ranks, unlist)
-
-return(df)
+  
+  bulk_ranks <- httr::GET(requrl)
+  
+  #check the status for the call and return errors or don't
+  httr::stop_for_status(bulk_ranks, glue::glue('get the bulk rankings. \n   {httr::content(bulk_ranks)$Result}'))
+  #if 200 but no results due to an error
+  if(is.null(httr::content(bulk_ranks)$Response)) {
+    stop(httr::content(bulk_ranks)$Result)
+  }
+  
+  #return the results
+  report_id <- httr::content(bulk_ranks)$Response$Result$Id
+  
+  message(glue::glue('Your report id is {report_id} \n Checking to see if it is complete...'))
+  
+  requrl <- glue::glue('{baseurl}bulk/status?id={report_id}&format=json')
+  
+  statusgot <- httr::GET(requrl)
+  
+  
+  try = 1
+  ##Check if the report is ready
+  checkit <- function(statusgot, try){
+    keepgoingstatus <- list('NotStarted','InProgress')
+    stopstatus <- list('Deleted','Failed')
+    completestatus <- list('Completed')
+    res <- httr::content(statusgot)
+    status <- httr::content(statusgot)$Response$Result$Status
+    
+    if(status %in% keepgoingstatus) {
+      message(glue::glue('Attempt #{try}'))
+      message(glue::glue('The current status is {status}.'))
+      
+      #pause for 2 seconds for the report to run
+      Sys.sleep(2)
+      
+      #get the status for the report
+      status_res <- httr::GET(requrl) 
+      try <- try + 1
+      checkit(status_res, try)
+    } else if(status %in% stopstatus) {
+      #report back the status and ask to retry
+      message(glue::glue('The current status of the report is \'{status}\'. You will need to retry your request.'))
+    } else if(status %in% completestatus) {
+      
+      message(glue::glue('Good news! Your report is complete'))
+      report <- httr::GET(res$Response$Result$StreamUrl)
+      
+      reportinfo <- httr::content(report)
+      
+      totalsites <- 
+        
+        totalkeywords <- reportinfo$Response$Project$Site$TotalKeywords
+      message(glue::glue('{totalkeywords} Total keywords have been returned for {date}'))
+      resultkeywords <- purrr::map_df(reportinfo$Response$Project$Site$Keyword, unlist)
+      
+      #return the final keyword report for the date requested
+      return(resultkeywords)
+    }
+  }
+  report_response <- checkit(statusgot, try)
+  
 }
