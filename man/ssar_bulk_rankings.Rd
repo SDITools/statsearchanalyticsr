@@ -32,6 +32,9 @@ ssar_bulk_rankings(
 
 \item{apikey}{The api key from the account}
 }
+\value{
+The dataframe with all keywords ranking information for the requested date
+}
 \description{
 Retrieve a bulk report of all the rankings or for specific sites.
 }

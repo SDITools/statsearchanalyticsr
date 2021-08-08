@@ -11,6 +11,7 @@
 #' @param subdomain The account subdomain
 #' @param apikey The api key from the account
 #'
+#' @return The dataframe with all keywords ranking information for the requested date
 #'
 #' @import httr tidyr jsonlite
 #' @importFrom glue glue

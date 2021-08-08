@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_bulk_request.R
 \name{ssar_bulk_request}
 \alias{ssar_bulk_request}
-\title{Request Bulk Rankings Report}
+\title{Request Bulk Request Report}
 \usage{
 ssar_bulk_request(
   id = NULL,
@@ -16,6 +16,9 @@ ssar_bulk_request(
 \item{subdomain}{The account subdomain}
 
 \item{apikey}{The api key from the account}
+}
+\value{
+The dataframe with all keywords ranking information for the requested ID
 }
 \description{
 Retrieve a bulk report of all the rankings or for specific sites.

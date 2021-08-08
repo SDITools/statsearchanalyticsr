@@ -1,4 +1,4 @@
-#' Request Bulk Rankings Report
+#' Request Bulk Request Report
 #'
 #' Retrieve a bulk report of all the rankings or for specific sites.
 #'
@@ -6,6 +6,7 @@
 #' @param subdomain The account subdomain
 #' @param apikey The api key from the account
 #'
+#' @return The dataframe with all keywords ranking information for the requested ID
 #'
 #' @import httr tidyr jsonlite
 #' @importFrom glue glue
