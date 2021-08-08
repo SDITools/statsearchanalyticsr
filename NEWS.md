@@ -1,5 +1,9 @@
 # statsearchanalyticsr 0.1.2
 
+* Added Bulk Reports function
+* Added  Sites Ranking Distribution function
+* Minor documentation improvements
+
 # statsearchanalyticsr 0.1.1
 
 * Improved Bulk Rankings report function to help mitigate the 1000 api calls per day limit. Now you can pull in all keywords by day and only do one api call for the day, no matter how many keywords your account has.
