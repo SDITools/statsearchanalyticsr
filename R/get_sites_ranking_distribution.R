@@ -20,8 +20,8 @@
 ssar_sites_ranking_dist <- function( siteid = NULL,
                         from_date = as.character(Sys.Date()-31),
                         to_date = as.character(Sys.Date()-1),
-                        subdomain = Sys.getenv('STATR_SUBDOMAIN'),
-                        apikey = Sys.getenv('STATR_APIKEY') ) {
+                        subdomain = Sys.getenv('SSAR_SUBDOMAIN'),
+                        apikey = Sys.getenv('SSAR_APIKEY') ) {
   
 #siteid must be included
   if(is.null(siteid)) {

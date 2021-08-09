@@ -22,8 +22,8 @@ ssar_rankings <- function(keywordid = NULL,
                          todate = NULL,
                          start = 0,
                          results = 100,
-                         subdomain = Sys.getenv('STATR_SUBDOMAIN'),
-                         apikey = Sys.getenv('STATR_APIKEY')) {
+                         subdomain = Sys.getenv('SSAR_SUBDOMAIN'),
+                         apikey = Sys.getenv('SSAR_APIKEY')) {
 #siteid check
   if(is.null(keywordid)) stop ("The argument 'keywordid' is required. Please include 'keywordid' as an argument.")
 

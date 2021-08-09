@@ -10,8 +10,8 @@ ssar_rankings(
   todate = NULL,
   start = 0,
   results = 100,
-  subdomain = Sys.getenv("STATR_SUBDOMAIN"),
-  apikey = Sys.getenv("STATR_APIKEY")
+  subdomain = Sys.getenv("SSAR_SUBDOMAIN"),
+  apikey = Sys.getenv("SSAR_APIKEY")
 )
 }
 \arguments{

@@ -16,8 +16,8 @@
 #' @export
 #'
 ssar_bulk_request <- function(id = NULL,
-                               subdomain = Sys.getenv('STATR_SUBDOMAIN'),
-                               apikey = Sys.getenv('STATR_APIKEY')) {
+                               subdomain = Sys.getenv('SSAR_SUBDOMAIN'),
+                               apikey = Sys.getenv('SSAR_APIKEY')) {
 if(is.null(id)){
   stop("id argument cannot be empty")
 }

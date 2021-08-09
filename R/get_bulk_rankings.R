@@ -26,8 +26,8 @@ ssar_bulk_rankings <- function( date = Sys.Date()-1,
                                 engines = c('google', 'bing'),
                                 currentlytracked = TRUE,
                                 crawledkeywords = TRUE,
-                                subdomain = Sys.getenv('STATR_SUBDOMAIN'),
-                                apikey = Sys.getenv('STATR_APIKEY')) {
+                                subdomain = Sys.getenv('SSAR_SUBDOMAIN'),
+                                apikey = Sys.getenv('SSAR_APIKEY')) {
   if(is.null(date)){
     stop("date argument cannot be empty")
   }

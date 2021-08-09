@@ -11,8 +11,8 @@ ssar_bulk_rankings(
   engines = c("google", "bing"),
   currentlytracked = TRUE,
   crawledkeywords = TRUE,
-  subdomain = Sys.getenv("STATR_SUBDOMAIN"),
-  apikey = Sys.getenv("STATR_APIKEY")
+  subdomain = Sys.getenv("SSAR_SUBDOMAIN"),
+  apikey = Sys.getenv("SSAR_APIKEY")
 )
 }
 \arguments{

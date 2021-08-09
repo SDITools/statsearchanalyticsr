@@ -5,8 +5,8 @@
 \title{Get Projects}
 \usage{
 ssar_projects(
-  subdomain = Sys.getenv("STATR_SUBDOMAIN"),
-  apikey = Sys.getenv("STATR_APIKEY")
+  subdomain = Sys.getenv("SSAR_SUBDOMAIN"),
+  apikey = Sys.getenv("SSAR_APIKEY")
 )
 }
 \arguments{

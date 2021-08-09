@@ -18,8 +18,8 @@
 ssar_sites <- function( projectid = NULL,
                          start = NULL,
                          results = 100,
-                         subdomain = Sys.getenv('STATR_SUBDOMAIN'),
-                         apikey = Sys.getenv('STATR_APIKEY')) {
+                         subdomain = Sys.getenv('SSAR_SUBDOMAIN'),
+                         apikey = Sys.getenv('SSAR_APIKEY')) {
 #add valid params
   params <- list(project_id = projectid, start = start, results = results, format = 'json')
 #collec non NULL params into a list

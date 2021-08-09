@@ -11,8 +11,8 @@
 #'
 #' @export
 #'
-ssar_projects <- function(subdomain = Sys.getenv('STATR_SUBDOMAIN'),
-                            apikey = Sys.getenv('STATR_APIKEY')) {
+ssar_projects <- function(subdomain = Sys.getenv('SSAR_SUBDOMAIN'),
+                            apikey = Sys.getenv('SSAR_APIKEY')) {
 
 # add valid params
   params <- list(format = 'json')
