@@ -105,11 +105,9 @@ ssar_bulk_rankings <- function( date = Sys.Date()-1,
       
       reportinfo <- httr::content(report)
       
-      totalsites <- 
-        
-        totalkeywords <- reportinfo$Response$Project$Site$TotalKeywords
-      message(glue::glue('{totalkeywords} Total keywords have been returned for {date}'))
       resultkeywords <- purrr::map_df(reportinfo$Response$Project$Site$Keyword, unlist)
+      #message the number of keywords that were returned.
+      message(glue::glue('{length(unique(resultkeywords$Id))} Total keywords have been returned for {date}'))
       
       #return the final keyword report for the date requested
       return(resultkeywords)
