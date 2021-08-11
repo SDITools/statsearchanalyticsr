@@ -1,5 +1,7 @@
 # statsearchanalyticsr 0.1.3
 
+* Changed the bulk ranking request to message the correct number of keywords in the result
+
 # statsearchanalyticsr 0.1.2
 
 * Added Bulk Reports function
