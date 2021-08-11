@@ -1,3 +1,5 @@
+# statsearchanalyticsr 0.1.3
+
 # statsearchanalyticsr 0.1.2
 
 * Added Bulk Reports function
