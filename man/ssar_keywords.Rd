@@ -23,6 +23,16 @@ ssar_keywords(
 
 \item{apikey}{The api key from the account}
 }
+\value{
+A dataframe of keywords along with 29 other columns of data
+}
 \description{
-Retrieve a list of all the keywords in a particular site
+Retrieve a table of all the keywords in a particular site and the corresponding metadata
+}
+\examples{
+ 
+\dontrun{
+ssar_keywords(siteid = {site_id} ) #replace is your site id
+}
+
 }

@@ -11,15 +11,21 @@ ssar_bulk_request(
 )
 }
 \arguments{
-\item{id}{Id of the bulk job}
+\item{id}{Id of the bulk job #required}
 
 \item{subdomain}{The account subdomain}
 
 \item{apikey}{The api key from the account}
 }
 \value{
-The dataframe with all keywords ranking information for the requested ID
+The table with all keywords ranking information for the requested ID
 }
 \description{
 Retrieve a bulk report of all the rankings or for specific sites.
+}
+\examples{
+\dontrun{
+ssar_bulk_request(id = {report_id})
+}
+
 }

@@ -1,14 +1,21 @@
 #' Get Sites Ranking Distribution
 #'
-#' This request returns all ranking distribution records for Google and Bing for a site with the specified id. The maximum date range can be no greater than 31 days.
+#' This function returns all ranking distribution records for Google and Bing for a site with the specified id. The maximum date range can be no greater than 31 days.
 #'
 #' @param siteid *Required* The site id.
-#' @param from_date *Required* Character string in the 'YYYY-MM-DD' format. Default is -31 days from today
-#' @param to_date *Required* Character string in the 'YYYY-MM-DD' format. Default is yesterday.
+#' @param fromdate *Required* Character string in the 'YYYY-MM-DD' format. Default is -31 days from today
+#' @param todate *Required* Character string in the 'YYYY-MM-DD' format. Default is yesterday.
 #' @param subdomain The account subdomain
 #' @param apikey The api key from the account
 #'
-#' @return The dataframe with Google, GoogleBaseRank, and Bing ranking distributions by date
+#' @return A table with Google, GoogleBaseRank, and Bing ranking distributions by date
+#' 
+#' @examples  
+#' \dontrun{
+#' ssar_sites_ranking_dist(siteid = {site_id}, #replace is your site id
+#'                        fromdate = '2021-04-01',
+#'                        todate = '2021-05-31')
+#' }
 #' 
 #' @import httr tidyr jsonlite
 #' @importFrom glue glue
@@ -18,8 +25,8 @@
 #' @export
 #'
 ssar_sites_ranking_dist <- function( siteid = NULL,
-                        from_date = as.character(Sys.Date()-31),
-                        to_date = as.character(Sys.Date()-1),
+                        fromdate = as.character(Sys.Date()-31),
+                        todate = as.character(Sys.Date()-1),
                         subdomain = Sys.getenv('SSAR_SUBDOMAIN'),
                         apikey = Sys.getenv('SSAR_APIKEY') ) {
   
@@ -28,7 +35,7 @@ ssar_sites_ranking_dist <- function( siteid = NULL,
     stop('\'siteid\' must be provided')
   }
 #add valid params
-  params <- list(id = siteid, from_date = from_date, to_date = to_date, format = 'json')
+  params <- list(id = siteid, fromdate = fromdate, todate = todate, format = 'json')
 #collec non NULL params into a list
   valid_params <- Filter(Negate(is.null), params)
 #make that list into a parameter string

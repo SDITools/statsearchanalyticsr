@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">statsearchanalyticsr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
       </span>
     </div>
 
@@ -92,7 +92,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/searchdiscovery/statsearchanalyticsr/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -107,7 +112,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get Sites Ranking Distribution</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/searchdiscovery/statsearchanalyticsr/blob/master/R/get_sites_ranking_distribution.R'><code>R/get_sites_ranking_distribution.R</code></a></small>
     <div class="hidden name"><code>ssar_sites_ranking_dist.Rd</code></div>
     </div>
 
@@ -117,8 +122,8 @@
 
     <pre class="usage"><span class='fu'>ssar_sites_ranking_dist</span><span class='op'>(</span>
   siteid <span class='op'>=</span> <span class='cn'>NULL</span>,
-  from_date <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>as.character</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>-</span> <span class='fl'>31</span><span class='op'>)</span>,
-  to_date <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>as.character</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>-</span> <span class='fl'>1</span><span class='op'>)</span>,
+  fromdate <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>as.character</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>-</span> <span class='fl'>31</span><span class='op'>)</span>,
+  todate <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>as.character</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>-</span> <span class='fl'>1</span><span class='op'>)</span>,
   subdomain <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span><span class='op'>(</span><span class='st'>"SSAR_SUBDOMAIN"</span><span class='op'>)</span>,
   apikey <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span><span class='op'>(</span><span class='st'>"SSAR_APIKEY"</span><span class='op'>)</span>
 <span class='op'>)</span></pre>
@@ -131,11 +136,11 @@
       <td><p><em>Required</em> The site id.</p></td>
     </tr>
     <tr>
-      <th>from_date</th>
+      <th>fromdate</th>
       <td><p><em>Required</em> Character string in the 'YYYY-MM-DD' format. Default is -31 days from today</p></td>
     </tr>
     <tr>
-      <th>to_date</th>
+      <th>todate</th>
       <td><p><em>Required</em> Character string in the 'YYYY-MM-DD' format. Default is yesterday.</p></td>
     </tr>
     <tr>
@@ -152,6 +157,15 @@
 
     <p>The dataframe with Google, GoogleBaseRank, and Bing ranking distributions by date</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'> 
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'>ssar_sites_ranking_dist</span><span class='op'>(</span>siteid <span class='op'>=</span> <span class='fl'>379</span>,
+                        fromdate <span class='op'>=</span> <span class='st'>'2021-04-01'</span>,
+                       todate <span class='op'>=</span> <span class='st'>'2021-05-31'</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

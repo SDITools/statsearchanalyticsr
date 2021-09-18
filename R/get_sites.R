@@ -1,13 +1,20 @@
 #' Get Sites
 #'
-#' Retrieve a list of all the sites in a particular project
+#' Retrieve a table of all the sites and metadata in a specified project
 #'
 #' @param projectid The project id. If not provided then all sites will be returned.
-#' @param start If more than `results` use `start` as pagination. Index starts at 0 (default).
+#' @param start If more than `results` are available use `start` as pagination. Index starts at 0 (default).
 #' @param results Default is 100. Max is 5000.
 #' @param subdomain The account subdomain
 #' @param apikey The api key from the account
 #'
+#' @return A table of the site information within a project
+#' 
+#' @examples 
+#' \dontrun{
+#' ssar_sites(projectid = {project_id}, #replace with your project id
+#'            results = 300)
+#' }
 #'
 #' @import httr tidyr jsonlite
 #' @importFrom glue glue

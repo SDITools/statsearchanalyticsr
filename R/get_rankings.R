@@ -1,6 +1,6 @@
 #' Get Rankings
 #'
-#' Retrieve a list of all the sites in a particular project
+#' Retrieve a table including metadata for all the sites in a particular project
 #'
 #' @param keywordid The keyword id (required)
 #' @param fromdate Default is 100 most recent results (optional) Format is a string YYYY-MM-DD
@@ -10,6 +10,14 @@
 #' @param subdomain The account subdomain
 #' @param apikey The api key from the account
 #'
+#' @return A dataframe of all rankings within a defined date range for a specific keyword
+#' 
+#' @examples 
+#' \dontrun{
+#' ssar_rankings(keywordid = {keyword_id}, #replace with your keyword_id 
+#'               fromdate = '2021-01-01', 
+#'               todate = '2021-04-01')
+#' }
 #'
 #' @import httr tidyr jsonlite
 #' @importFrom glue glue
@@ -17,7 +25,7 @@
 #'
 #' @export
 #'
-ssar_rankings <- function(keywordid = NULL,
+ssar_rankings <- function(keywordid = NULL, #required
                          fromdate = NULL,
                          todate = NULL,
                          start = 0,

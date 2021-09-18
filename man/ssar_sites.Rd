@@ -15,7 +15,7 @@ ssar_sites(
 \arguments{
 \item{projectid}{The project id. If not provided then all sites will be returned.}
 
-\item{start}{If more than \code{results} use \code{start} as pagination. Index starts at 0 (default).}
+\item{start}{If more than \code{results} are available use \code{start} as pagination. Index starts at 0 (default).}
 
 \item{results}{Default is 100. Max is 5000.}
 
@@ -23,6 +23,16 @@ ssar_sites(
 
 \item{apikey}{The api key from the account}
 }
+\value{
+A table of the site information within a project
+}
 \description{
-Retrieve a list of all the sites in a particular project
+Retrieve a table of all the sites and metadata in a specified project
+}
+\examples{
+\dontrun{
+ssar_sites(projectid = {project_id}, #replace with your project id
+           results = 300)
+}
+
 }

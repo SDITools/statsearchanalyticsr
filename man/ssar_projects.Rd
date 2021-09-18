@@ -14,6 +14,16 @@ ssar_projects(
 
 \item{apikey}{The api key from the account}
 }
+\value{
+A dataframe of available project data your authentication has access to
+}
 \description{
-Recieve a list of all the projects on an account
+Receive a list of all the projects on an account accessible through the provided api key
+}
+\examples{
+\dontrun{
+projects(subdomain = Sys.getenv('SSAR_SUBDOMAIN'),
+         apikey = Sys.getenv('SSAR_APIKEY'))
+}
+
 }

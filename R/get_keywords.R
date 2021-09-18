@@ -1,19 +1,25 @@
 #' Get Keywords
 #'
-#' Retrieve a list of all the keywords in a particular site
+#' Retrieve a table of all the keywords in a particular site and the corresponding metadata
 #'
 #' @param siteid The site id (required)
 #' @param start The default is 0 (zero indexed)
 #' @param results The default is 100
 #' @param subdomain The account subdomain
 #' @param apikey The api key from the account
-#'
+#' 
+#' @examples  
+#' \dontrun{
+#' ssar_keywords(siteid = {site_id} ) #replace is your site id
+#' }
 #'
 #' @import httr tidyr jsonlite
 #' @importFrom glue glue
 #' @importFrom purrr map_df
 #'
 #' @export
+#' 
+#' @return A dataframe of keywords along with 29 other columns of data
 #'
 ssar_keywords <- function(siteid = NULL,
                          start = 0,

@@ -1,6 +1,6 @@
 #' Get Projects
 #'
-#' Recieve a list of all the projects on an account
+#' Receive a list of all the projects on an account accessible through the provided api key
 #'
 #' @param subdomain The account subdomain
 #' @param apikey The api key from the account
@@ -9,7 +9,16 @@
 #' @importFrom glue glue
 #' @importFrom purrr map_df
 #'
+#' @return A dataframe of available project data your authentication has access to
+#' 
+#' @examples
+#' \dontrun{
+#' projects(subdomain = Sys.getenv('SSAR_SUBDOMAIN'),
+#'          apikey = Sys.getenv('SSAR_APIKEY'))
+#' }
+#' 
 #' @export
+#' 
 #'
 ssar_projects <- function(subdomain = Sys.getenv('SSAR_SUBDOMAIN'),
                             apikey = Sys.getenv('SSAR_APIKEY')) {

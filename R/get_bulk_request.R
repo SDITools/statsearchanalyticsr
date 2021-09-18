@@ -2,11 +2,16 @@
 #'
 #' Retrieve a bulk report of all the rankings or for specific sites.
 #'
-#' @param id Id of the bulk job
+#' @param id Id of the bulk job #required
 #' @param subdomain The account subdomain
 #' @param apikey The api key from the account
 #'
-#' @return The dataframe with all keywords ranking information for the requested ID
+#' @return The table with all keywords ranking information for the requested ID
+#' 
+#' @examples 
+#' \dontrun{
+#' ssar_bulk_request(id = {report_id})
+#' }
 #'
 #' @import httr tidyr jsonlite
 #' @importFrom glue glue

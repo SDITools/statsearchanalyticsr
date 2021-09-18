@@ -40,7 +40,7 @@
 
 
 <meta property="og:title" content="Get Projects — ssar_projects" />
-<meta property="og:description" content="Recieve a list of all the projects on an account" />
+<meta property="og:description" content="Receive a list of all the projects on an account" />
 
 
 
@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">statsearchanalyticsr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
       </span>
     </div>
 
@@ -92,7 +92,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/searchdiscovery/statsearchanalyticsr/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -107,12 +112,12 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get Projects</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/searchdiscovery/statsearchanalyticsr/blob/master/R/get_projects.R'><code>R/get_projects.R</code></a></small>
     <div class="hidden name"><code>ssar_projects.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Recieve a list of all the projects on an account</p>
+    <p>Receive a list of all the projects on an account</p>
     </div>
 
     <pre class="usage"><span class='fu'>ssar_projects</span><span class='op'>(</span>
@@ -133,7 +138,17 @@
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>A dataframe of available project data your authentication has access to</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'>projects</span><span class='op'>(</span>subdomain <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span><span class='op'>(</span><span class='st'>'SSAR_SUBDOMAIN'</span><span class='op'>)</span>,
+         apikey <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span><span class='op'>(</span><span class='st'>'SSAR_APIKEY'</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

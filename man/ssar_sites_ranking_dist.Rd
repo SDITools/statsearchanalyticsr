@@ -6,8 +6,8 @@
 \usage{
 ssar_sites_ranking_dist(
   siteid = NULL,
-  from_date = as.character(Sys.Date() - 31),
-  to_date = as.character(Sys.Date() - 1),
+  fromdate = as.character(Sys.Date() - 31),
+  todate = as.character(Sys.Date() - 1),
   subdomain = Sys.getenv("SSAR_SUBDOMAIN"),
   apikey = Sys.getenv("SSAR_APIKEY")
 )
@@ -15,17 +15,26 @@ ssar_sites_ranking_dist(
 \arguments{
 \item{siteid}{\emph{Required} The site id.}
 
-\item{from_date}{\emph{Required} Character string in the 'YYYY-MM-DD' format. Default is -31 days from today}
+\item{fromdate}{\emph{Required} Character string in the 'YYYY-MM-DD' format. Default is -31 days from today}
 
-\item{to_date}{\emph{Required} Character string in the 'YYYY-MM-DD' format. Default is yesterday.}
+\item{todate}{\emph{Required} Character string in the 'YYYY-MM-DD' format. Default is yesterday.}
 
 \item{subdomain}{The account subdomain}
 
 \item{apikey}{The api key from the account}
 }
 \value{
-The dataframe with Google, GoogleBaseRank, and Bing ranking distributions by date
+A table with Google, GoogleBaseRank, and Bing ranking distributions by date
 }
 \description{
-This request returns all ranking distribution records for Google and Bing for a site with the specified id. The maximum date range can be no greater than 31 days.
+This function returns all ranking distribution records for Google and Bing for a site with the specified id. The maximum date range can be no greater than 31 days.
+}
+\examples{
+ 
+\dontrun{
+ssar_sites_ranking_dist(siteid = {site_id}, #replace is your site id
+                       fromdate = '2021-04-01',
+                       todate = '2021-05-31')
+}
+
 }

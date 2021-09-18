@@ -29,6 +29,17 @@ ssar_rankings(
 
 \item{apikey}{The api key from the account}
 }
+\value{
+A dataframe of all rankings within a defined date range for a specific keyword
+}
 \description{
-Retrieve a list of all the sites in a particular project
+Retrieve a table including metadata for all the sites in a particular project
+}
+\examples{
+\dontrun{
+ssar_rankings(keywordid = {keyword_id}, #replace with your keyword_id 
+              fromdate = '2021-01-01', 
+              todate = '2021-04-01')
+}
+
 }
