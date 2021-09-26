@@ -30,3 +30,6 @@ Imports:
     tidyr,
     tibble,
     stringr
+Suggests: 
+    spelling
+Language: en-US

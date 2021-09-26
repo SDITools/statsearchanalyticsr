@@ -40,7 +40,7 @@
 
 
 <meta property="og:title" content="Get Sites Ranking Distribution — ssar_sites_ranking_dist" />
-<meta property="og:description" content="This request returns all ranking distribution records for Google and Bing for a site with the specified id. The maximum date range can be no greater than 31 days." />
+<meta property="og:description" content="This function returns all ranking distribution records for Google and Bing for a site with the specified id. The maximum date range can be no greater than 31 days." />
 
 
 
@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">statsearchanalyticsr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4</span>
       </span>
     </div>
 
@@ -117,7 +117,7 @@
     </div>
 
     <div class="ref-description">
-    <p>This request returns all ranking distribution records for Google and Bing for a site with the specified id. The maximum date range can be no greater than 31 days.</p>
+    <p>This function returns all ranking distribution records for Google and Bing for a site with the specified id. The maximum date range can be no greater than 31 days.</p>
     </div>
 
     <pre class="usage"><span class='fu'>ssar_sites_ranking_dist</span><span class='op'>(</span>
@@ -155,13 +155,13 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The dataframe with Google, GoogleBaseRank, and Bing ranking distributions by date</p>
+    <p>A table with Google, GoogleBaseRank, and Bing ranking distributions by date</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'> 
 <span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='fu'>ssar_sites_ranking_dist</span><span class='op'>(</span>siteid <span class='op'>=</span> <span class='fl'>379</span>,
-                        fromdate <span class='op'>=</span> <span class='st'>'2021-04-01'</span>,
+<span class='fu'>ssar_sites_ranking_dist</span><span class='op'>(</span>siteid <span class='op'>=</span> <span class='op'>{</span><span class='va'>site_id</span><span class='op'>}</span>, <span class='co'>#replace is your site id</span>
+                       fromdate <span class='op'>=</span> <span class='st'>'2021-04-01'</span>,
                        todate <span class='op'>=</span> <span class='st'>'2021-05-31'</span><span class='op'>)</span>
 <span class='op'>}</span>
 
