@@ -1,12 +1,12 @@
-#' Request Bulk Request Report
+#' Request Bulk Report
 #'
-#' Retrieve a bulk report of all the rankings or for specific sites.
+#' Retrieve a bulk report using a bulk report id. Intended to be used with the `get_bulk_rankings` function but can be used independently as well.
 #'
 #' @param id Id of the bulk job #required
 #' @param subdomain The account subdomain
 #' @param apikey The api key from the account
 #'
-#' @return The table with all keywords ranking information for the requested ID
+#' @return list of the bulk keyword ranking report for the requested ID
 #' 
 #' @examples 
 #' \dontrun{
@@ -17,8 +17,9 @@
 #' @importFrom glue glue
 #' @importFrom purrr map_df
 #' @importFrom stringr str_c
-#'
+#' 
 #' @export
+#'
 #'
 ssar_bulk_request <- function(id = NULL,
                                subdomain = Sys.getenv('SSAR_SUBDOMAIN'),

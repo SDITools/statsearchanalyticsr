@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_bulk_request.R
 \name{ssar_bulk_request}
 \alias{ssar_bulk_request}
-\title{Request Bulk Request Report}
+\title{Request Bulk Report}
 \usage{
 ssar_bulk_request(
   id = NULL,
@@ -18,10 +18,10 @@ ssar_bulk_request(
 \item{apikey}{The api key from the account}
 }
 \value{
-The table with all keywords ranking information for the requested ID
+list of the bulk keyword ranking report for the requested ID
 }
 \description{
-Retrieve a bulk report of all the rankings or for specific sites.
+Retrieve a bulk report using a bulk report id. Intended to be used with the \code{get_bulk_rankings} function but can be used independently as well.
 }
 \examples{
 \dontrun{

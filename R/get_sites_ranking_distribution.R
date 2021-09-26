@@ -20,7 +20,6 @@
 #' @import httr tidyr jsonlite
 #' @importFrom glue glue
 #' @importFrom purrr map_df
-#' @importFrom tibble as_tibble
 #'
 #' @export
 #'
@@ -50,22 +49,23 @@ ssar_sites_ranking_dist <- function( siteid = NULL,
  sites_res <- httr::GET(requrl)
 
 #check the status for the call and return errors or don't
- httr::stop_for_status(sites, glue::glue('get the sites list. \n {httr::content(sites)$Result}'))
+ httr::stop_for_status(sites_res, glue::glue('get the sites list. \n {httr::content(sites_res)$Result}'))
  #if 200 but no results due to an error
- if(is.null(httr::content(sites)$Response)) {
-   stop(httr::content(sites))
+ if(is.null(httr::content(sites_res)$Response)) {
+   stop(httr::content(sites_res))
  }
 
  #return the results
  sites <- httr::content(sites_res)$Response$RankDistribution
 
- dists <- function(x = 1:2){
-    google <- as_tibble(c(date = sites[[x]]$date, type ='Google', sites[[x]]$Google ))
-    googlebaserank <- as_tibble(c(date = sites[[x]]$date, type ='GoogleBaseRank', sites[[x]]$GoogleBaseRank))
-    bing <- as_tibble(c(date = sites[[x]]$date, type ='Bing', sites[[x]]$Bing))
-    
-    rbind(google, googlebaserank, bing)
+ dists <- function(x){
+   google <- tidyr::as_tibble(c(date = sites[[x]]$date, type ='Google', sites[[x]]$Google ))
+   googlebaserank <- tidyr::as_tibble(c(date = sites[[x]]$date, type ='GoogleBaseRank', sites[[x]]$GoogleBaseRank))
+   bing <- tidyr::as_tibble(c(date = sites[[x]]$date, type ='Bing', sites[[x]]$Bing))
+   
+   rbind(google, googlebaserank, bing)
  }
+ 
  
 df <- map_df(1:3, dists)
  
