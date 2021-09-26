@@ -34,7 +34,7 @@ ssar_sites_ranking_dist <- function( siteid = NULL,
     stop('\'siteid\' must be provided')
   }
 #add valid params
-  params <- list(id = siteid, fromdate = fromdate, todate = todate, format = 'json')
+  params <- list(id = siteid, from_date = fromdate, to_date = todate, format = 'json')
 #collec non NULL params into a list
   valid_params <- Filter(Negate(is.null), params)
 #make that list into a parameter string
