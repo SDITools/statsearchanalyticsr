@@ -3,7 +3,7 @@
 #' This function returns all ranking distribution records for Google and Bing for a site with the specified id. The maximum date range can be no greater than 31 days.
 #'
 #' @param siteid *Required* The site id.
-#' @param fromdate *Required* Character string in the 'YYYY-MM-DD' format. Default is -31 days from today
+#' @param fromdate *Required* Character string in the 'YYYY-MM-DD' format. Default is -31 days from today since the maximum date range can be no greater than 31 days.
 #' @param todate *Required* Character string in the 'YYYY-MM-DD' format. Default is yesterday.
 #' @param subdomain The account subdomain
 #' @param apikey The api key from the account
@@ -66,8 +66,8 @@ ssar_sites_ranking_dist <- function( siteid = NULL,
    rbind(google, googlebaserank, bing)
  }
  
- 
-df <- map_df(1:3, dists)
+days = as.numeric(lubridate::date(todate)-lubridate::date(fromdate))
+df <- map_df(seq(days), dists)
  
 return(df)
 }
