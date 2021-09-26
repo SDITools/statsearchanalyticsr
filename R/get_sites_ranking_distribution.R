@@ -51,8 +51,8 @@ ssar_sites_ranking_dist <- function( siteid = NULL,
 #check the status for the call and return errors or don't
  httr::stop_for_status(sites_res, glue::glue('get the sites list. \n {httr::content(sites_res)$Result}'))
  #if 200 but no results due to an error
- if(is.null(httr::content(sites_res)$Response)) {
-   stop(httr::content(sites_res))
+ if(is.null(httr::content(sites_res)$Response$RankDistribution)) {
+   stop("The request did not return any results. Make sure you used the correct Site ID.")
  }
 
  #return the results
