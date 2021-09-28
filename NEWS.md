@@ -1,3 +1,5 @@
+# statsearchanalyticsr (development version)
+
 # statsearchanalyticsr 0.1.4
 
 * Initial CRAN version
