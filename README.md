@@ -4,9 +4,11 @@ The statsearchanalyticsr makes it easy to pull [STAT Search Analytics](https://g
 
 ## Installation
 
-You can install the development version of statsearchanalyticsr from github with:
+```
+# Install from CRAN:
+install.packages("statsearchanalyticsr")
 
-``` r
+# Or the development version from GitHub:
 install.packages('remotes')
 remotes::install_github('searchdiscovery/statsearchanalyticsr')
 ```
