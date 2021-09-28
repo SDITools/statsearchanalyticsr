@@ -29,7 +29,8 @@ Imports:
     purrr,
     tidyr,
     tibble,
-    stringr
+    stringr,
+    lubridate
 Suggests: 
     spelling
 Language: en-US

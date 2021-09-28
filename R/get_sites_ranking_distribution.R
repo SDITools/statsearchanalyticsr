@@ -19,6 +19,7 @@
 #' 
 #' @import httr tidyr jsonlite
 #' @importFrom glue glue
+#' @importFrom lubridate date
 #' @importFrom purrr map_df
 #'
 #' @export
@@ -67,7 +68,7 @@ ssar_sites_ranking_dist <- function( siteid = NULL,
  }
  
 days = as.numeric(lubridate::date(todate)-lubridate::date(fromdate))
-df <- map_df(seq(days), dists)
+df <- purrr::map_df(seq(days), dists)
  
 return(df)
 }

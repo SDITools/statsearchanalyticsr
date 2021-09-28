@@ -15,7 +15,7 @@ ssar_sites_ranking_dist(
 \arguments{
 \item{siteid}{\emph{Required} The site id.}
 
-\item{fromdate}{\emph{Required} Character string in the 'YYYY-MM-DD' format. Default is -31 days from today}
+\item{fromdate}{\emph{Required} Character string in the 'YYYY-MM-DD' format. Default is -31 days from today since the maximum date range can be no greater than 31 days.}
 
 \item{todate}{\emph{Required} Character string in the 'YYYY-MM-DD' format. Default is yesterday.}
 

@@ -1,5 +1,7 @@
 # statsearchanalyticsr 0.1.4
 
+* Initial CRAN version
+
 # statsearchanalyticsr 0.1.3
 
 * Changed the bulk ranking request to message the correct number of keywords in the result
