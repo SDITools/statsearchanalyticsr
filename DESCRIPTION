@@ -1,5 +1,5 @@
 Package: statsearchanalyticsr
-Title: An Interface for the 'STAT Search Analytics' 'API'
+Title: An Interface for the 'STAT Search Analytics' API
 Version: 0.1.4.9000
 Authors@R: c(
     person(given = "Ben",
